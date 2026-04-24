@@ -1,0 +1,48 @@
+{
+  "home": {
+    "title": "VerbQuizz",
+    "subtitle": "Practice the Past Simple in a fun way!",
+    "nicknamePlaceholder": "Your nickname",
+    "nicknameLabel": "What do you want to be called?",
+    "nicknameMin": "Minimum 2 characters",
+    "nicknameMax": "Maximum 20 characters",
+    "startButton": "Start!",
+    "footer": "10 questions · 30 seconds each · Irregular and regular verbs"
+  },
+  "quiz": {
+    "question": "Question",
+    "of": "of",
+    "trueFalse": "True or False",
+    "multipleChoice": "Multiple Choice",
+    "trueButton": "True",
+    "falseButton": "False",
+    "correct": "Correct!",
+    "wrong": "Wrong!",
+    "timeout": "Time's up!",
+    "nextButton": "Next",
+    "irregular": "Irregular",
+    "regular": "Regular",
+    "points": "pts",
+    "timeLeft": "seconds left"
+  },
+  "result": {
+    "title": "Final Results",
+    "score": "Score",
+    "correct": "Correct",
+    "outOf": "out of 10",
+    "ranking": "Global Ranking",
+    "yourPosition": "Your position",
+    "playAgain": "Play Again",
+    "rankingNickname": "Nickname",
+    "rankingScore": "Score",
+    "rankingDate": "Date",
+    "rankingPosition": "#",
+    "loadingRanking": "Loading ranking...",
+    "rankingError": "Ranking unavailable at the moment.",
+    "scoreError": "Score could not be saved.",
+    "you": "You"
+  },
+  "header": {
+    "brand": "VerbQuizz"
+  }
+}

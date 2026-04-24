@@ -1,0 +1,48 @@
+{
+  "home": {
+    "title": "VerbQuizz",
+    "subtitle": "Pratique o Past Simple de forma divertida!",
+    "nicknamePlaceholder": "Seu apelido",
+    "nicknameLabel": "Como você quer ser chamado?",
+    "nicknameMin": "Mínimo 2 caracteres",
+    "nicknameMax": "Máximo 20 caracteres",
+    "startButton": "Iniciar!",
+    "footer": "10 perguntas · 30 segundos cada · Verbos irregulares e regulares"
+  },
+  "quiz": {
+    "question": "Pergunta",
+    "of": "de",
+    "trueFalse": "Verdadeiro ou Falso",
+    "multipleChoice": "Múltipla Escolha",
+    "trueButton": "Verdadeiro",
+    "falseButton": "Falso",
+    "correct": "Correto!",
+    "wrong": "Errado!",
+    "timeout": "Tempo esgotado!",
+    "nextButton": "Próxima",
+    "irregular": "Irregular",
+    "regular": "Regular",
+    "points": "pts",
+    "timeLeft": "segundos restantes"
+  },
+  "result": {
+    "title": "Resultado Final",
+    "score": "Pontuação",
+    "correct": "Acertos",
+    "outOf": "de 10",
+    "ranking": "Ranking Global",
+    "yourPosition": "Sua posição",
+    "playAgain": "Jogar Novamente",
+    "rankingNickname": "Apelido",
+    "rankingScore": "Pontuação",
+    "rankingDate": "Data",
+    "rankingPosition": "#",
+    "loadingRanking": "Carregando ranking...",
+    "rankingError": "Ranking indisponível no momento.",
+    "scoreError": "Pontuação não pôde ser salva.",
+    "you": "Você"
+  },
+  "header": {
+    "brand": "VerbQuizz"
+  }
+}
