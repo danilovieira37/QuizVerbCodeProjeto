@@ -74,7 +74,10 @@ export default function Ranking({ entries, currentNickname, loading, error }: Pr
                   {entry.score.toLocaleString()}
                 </td>
                 <td className="py-3 px-4 text-right text-[#94A3B8] hidden sm:table-cell">
-                  {new Date(entry.created_at).toLocaleDateString()}
+                  {new Date(entry.created_at).toLocaleString('pt-BR', {
+                    day: '2-digit', month: '2-digit', year: '2-digit',
+                    hour: '2-digit', minute: '2-digit',
+                  })}
                 </td>
               </tr>
             );

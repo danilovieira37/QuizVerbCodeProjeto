@@ -76,6 +76,31 @@ export async function POST(request: NextRequest) {
 
   try {
     const supabase = getSupabase();
+
+    // Check if nickname already exists (case-insensitive)
+    const { data: existing } = await supabase
+      .from('rankings')
+      .select('id, score')
+      .ilike('nickname', nickname)
+      .maybeSingle();
+
+    if (existing) {
+      // Only update if new score is higher
+      if (score > existing.score) {
+        const { data, error } = await supabase
+          .from('rankings')
+          .update({ score, correct_answers, created_at: new Date().toISOString() })
+          .eq('id', existing.id)
+          .select()
+          .single();
+        if (error) throw error;
+        return Response.json(data, { status: 200 });
+      }
+      // New score is not higher — return existing without changes
+      return Response.json(existing, { status: 200 });
+    }
+
+    // Nickname not found — insert new record
     const { data, error } = await supabase
       .from('rankings')
       .insert({ nickname, score, correct_answers })
