@@ -77,12 +77,14 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = getSupabase();
 
-    // Check if nickname already exists (case-insensitive)
-    const { data: existing } = await supabase
+    // Check if nickname already exists (case-insensitive), pick highest score
+    const { data: rows } = await supabase
       .from('rankings')
       .select('id, score')
       .ilike('nickname', nickname)
-      .maybeSingle();
+      .order('score', { ascending: false })
+      .limit(1);
+    const existing = rows?.[0] ?? null;
 
     if (existing) {
       // Only update if new score is higher
