@@ -10,8 +10,7 @@ import Header from '@/components/Header';
 import Timer from '@/components/Timer';
 import QuizCard from '@/components/QuizCard';
 
-const TOTAL_TIME = 30;
-const FEEDBACK_DELAY_MS = 2500;
+const TOTAL_TIME = 15;
 
 export default function QuizPage() {
   const router = useRouter();
@@ -24,8 +23,7 @@ export default function QuizPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [pointsEarned, setPointsEarned] = useState(0);
   const [wasCorrect, setWasCorrect] = useState(false);
-  const feedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const timeLeftRef = useRef(TOTAL_TIME);
+const timeLeftRef = useRef(TOTAL_TIME);
 
   const currentQuestion = state.questions[state.currentIndex];
 
@@ -73,11 +71,8 @@ export default function QuizPage() {
         timeLeft: timeLeftRef.current,
         pointsEarned: pts,
       });
-      feedbackTimerRef.current = setTimeout(() => {
-        nextQuestion();
-      }, FEEDBACK_DELAY_MS);
     },
-    [showFeedback, currentQuestion, recordAnswer, nextQuestion]
+    [showFeedback, currentQuestion, recordAnswer]
   );
 
   // Countdown timer
@@ -90,12 +85,6 @@ export default function QuizPage() {
     const id = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
     return () => clearTimeout(id);
   }, [timeLeft, timerRunning, showFeedback, handleAnswer]);
-
-  useEffect(() => {
-    return () => {
-      if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
-    };
-  }, []);
 
   if (!currentQuestion) return null;
 
@@ -181,10 +170,7 @@ export default function QuizPage() {
                 </div>
                 <p className="text-[#94A3B8] text-sm leading-relaxed">{locale_q.explanation}</p>
                 <button
-                  onClick={() => {
-                    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
-                    nextQuestion();
-                  }}
+                  onClick={nextQuestion}
                   className="mt-4 w-full py-2.5 rounded-xl bg-[#2D2D4E] hover:bg-[#3D3D5E] text-white font-semibold transition-colors text-sm cursor-pointer"
                 >
                   {t.quiz.nextButton} →
